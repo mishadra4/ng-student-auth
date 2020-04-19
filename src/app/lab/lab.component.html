@@ -1,0 +1,58 @@
+<div class="lecture">
+  <div class="card-header pl-5">
+    <div class="row">
+      <span>Дата проведення лабораторної - {{getFormattedLabDate()}}</span>
+    </div>
+    <div class="row">
+      <span>Опис лабораторної - {{lab.description}}</span>
+    </div>
+  </div>
+  <table class="table table-bordered" id="students">
+    <thead class="thead-light" *ngIf="students.length > 0">
+    <tr>
+      <!--<th scope="col">#</th>-->
+      <th scope="col">First name</th>
+      <th scope="col">Last name</th>
+      <th scope="col">Is present</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let student of students">
+      <!--<th scope="row">{{student.id}}</th>-->
+      <td>{{student.firstName}}</td>
+      <td>{{student.lastName}}</td>
+      <td>
+        <input
+          class="form-input"
+          type="checkbox"
+          value="{{student.checked}}"
+          (click)="enrollStudent(lab.id, student.username)"
+          [checked]="student.checked">
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <h5 align="center" *ngIf="students.length == 0">Немає даних для відображення</h5>
+
+  <div class="accordion" id="accordionExample">
+    <div class="card">
+      <div class="card-header" id="headingOne">
+        <h2 class="mb-0">
+          <button class="btn btn-link" (click)="clickEvent()" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+            Показати/сховати QR-код
+          </button>
+        </h2>
+      </div>
+
+      <div id="collapseOne" class=""  [ngClass]="status ? 'collapse show' : 'collapse '" aria-labelledby="headingOne" data-parent="#accordionExample">
+        <div class="card-body">
+          <img src="{{imgPath}}" width="400" height="400"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<!--<div class="barcode">
+  <barcode-scanner></barcode-scanner>
+</div>-->

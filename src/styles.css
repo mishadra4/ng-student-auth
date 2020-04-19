@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+
+body{
+  /*padding: 25px;*/
+}
+
+.form-control.ng-touched.ng-invalid {
+  border: 2px solid red;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.barcode {
+  height: 280px;
+  width: 400px;
+}
+
+.page-body {
+  padding: 5%;
+  width: 85vh;
+  align-self: center;
+  margin: auto;
+}
+
+.button {
+  cursor: pointer;
+}

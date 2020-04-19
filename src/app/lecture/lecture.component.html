@@ -1,0 +1,108 @@
+<div class="lecture">
+  <div class="card-header pl-5">
+    <div class="row">
+      <span>Дата лекції - {{getFormattedDate()}}</span>
+    </div>
+    <div class="row">
+      <span>Опис лекції - {{lecture.description}}</span>
+    </div>
+  </div>
+  <!--  <table class="table table-bordered" id="students" *ngFor="let group of lecture.groups">
+      <thead class="thead-light" *ngIf="group.students.length > 0">
+      <tr>
+        <th scope="col" class="col-3">{{group.name}}</th>
+        <th scope="col" class="col-3">First name</th>
+        <th scope="col" class="col-3">Last name</th>
+        <th scope="col" class="col-3">Is present</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let student of group.students">
+        <th scope="row" class="col-3">{{student.id}}</th>
+        <td class="col-3">{{student.firstName}}</td>
+        <td class="col-3">{{student.lastName}}</td>
+        <td class="col-3">
+          <input
+            class="form-input"
+            type="checkbox"
+            value="{{student.checked}}"
+            (click)="enrollStudent(lecture.id, student.username)"
+            [checked]="student.checked">
+        </td>
+      </tr>
+      </tbody>
+    </table>-->
+  <div class="example-container mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+      <!-- Position Column -->
+
+      <!--    <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Id</th>
+            <td mat-cell *matCellDef="let student"> {{student.id}}</td>
+          </ng-container>-->
+      <ng-container matColumnDef="groupName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Group name</th>
+        <td mat-cell *matCellDef="let student"> {{student.groupName}}</td>
+        <td mat-footer-cell *matFooterCellDef></td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="firstName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> First name</th>
+        <td mat-cell *matCellDef="let student"> {{student.firstName}}</td>
+        <td mat-footer-cell *matFooterCellDef></td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Last name</th>
+        <td mat-cell *matCellDef="let student"> {{student.lastName}}</td>
+        <td mat-footer-cell *matFooterCellDef></td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="checked">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Is present</th>
+        <td mat-cell *matCellDef="let student"><input
+          class="form-input"
+          type="checkbox"
+          value="{{student.checked}}"
+          (click)="enrollStudent(lecture.id, student.username)"
+          [checked]="student.checked"></td>
+        <td mat-footer-cell *matFooterCellDef></td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <tr mat-footer-row *matFooterRowDef="displayedColumns; sticky: true"></tr>
+    </table>
+  </div>
+
+  <h5 align="center" *ngIf="students.length == 0">Немає даних для відображення</h5>
+
+  <div class="accordion" id="accordionExample">
+    <div class="card">
+      <div class="card-header" id="headingOne">
+        <h2 class="mb-0">
+          <button class="btn btn-link" (click)="clickEvent()" type="button" data-toggle="collapse"
+                  data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+            Показати/сховати QR-код
+          </button>
+        </h2>
+      </div>
+
+      <div id="collapseOne" class="" [ngClass]="status ? 'collapse show' : 'collapse '" aria-labelledby="headingOne"
+           data-parent="#accordionExample">
+        <div class="card-body">
+          <img src="{{imgPath}}" width="400" height="400"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!--<div class="barcode">
+  <barcode-scanner></barcode-scanner>
+</div>-->

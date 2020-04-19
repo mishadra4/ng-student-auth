@@ -1,0 +1,13 @@
+.form{
+  padding: 5%;
+  padding-left: 35%;
+  width: 800px;
+  align-self: center;
+  margin: auto;
+}
+
+.lecture {
+  alignment: right;
+  float: left;
+}
+

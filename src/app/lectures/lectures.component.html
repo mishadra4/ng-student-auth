@@ -1,0 +1,47 @@
+<div id="lectures-section">
+  <div id="lectures-list">
+<!--    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Лекції
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <ng-template matExpansionPanelContent>-->
+          <div class="list-group">
+            <a [routerLink]="[lecture.id]" routerLinkActive="active" *ngFor="let lecture of lectures"
+               class="list-group-item list-group-item-action">
+              {{lecture.name}}
+            </a>
+            <button routerLink="create" routerLinkActive="active" class="btn btn-light mt-4">
+              Створити лекцію
+            </button>
+            <input type="button" class="btn btn-primary" (click)="generateReport()" value="Згенерувати звіт">
+          </div>
+<!--        </ng-template>
+      </mat-expansion-panel>-->
+<!--
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Лабораторні
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <ng-template matExpansionPanelContent>
+          <span>New Span</span>-->
+<!--          <div class="list-group">
+            <a [routerLink]="['/lab', lab.id]" routerLinkActive="active" *ngFor="let lab of getValues()"
+               class="list-group-item list-group-item-action">
+              {{lab.name}}
+            </a>
+            <button routerLink="createLab" routerLinkActive="active" class="btn btn-light mt-4">
+              Створити лабораторну
+            </button>
+            <input type="button" class="btn btn-primary" (click)="generateLabsReport()" value="Згенерувати звіт">
+          </div>-->
+    <!--        </ng-template>
+          </mat-expansion-panel>
+        </mat-accordion>-->
+  </div>
+</div>
+<router-outlet></router-outlet>

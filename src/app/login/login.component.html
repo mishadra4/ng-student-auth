@@ -1,0 +1,48 @@
+<div class="page-body" >
+  <form #f="ngForm" ><!--(ngSubmit)="submit(f.value)"-->
+    <h2>Please sign in</h2>
+    <div class="form-group">
+      <label for="username">Email</label>
+      <input required
+             minlength="3"
+             ngModel
+             name="username"
+             #username="ngModel"
+             id="username"
+             type="text"
+             class="form-control">
+      <div *ngIf="username?.touched && username?.errors">
+        <div *ngIf="username.errors.required" class="alert alert-danger">
+          Email should be present
+        </div>
+        <div *ngIf="username.errors.minlength" class="alert alert-danger">
+          Email should be longer than 3 symbols
+        </div>
+      </div>
+    </div>
+    <div *ngIf="invalidLogin" class="alert alert-danger">
+      Invalid username or password
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input
+        required
+        #password="ngModel"
+        ngModel
+        name="password"
+        minlength="5"
+        type="password"
+        class="form-control"
+        id="password"/>
+      <div *ngIf="password?.touched && password?.errors">
+        <div *ngIf="password.errors.required" class="alert alert-danger">
+          Password should be present
+        </div>
+        <div *ngIf="password.errors.minlength" class="alert alert-danger">
+          Password should be longer than 5 symbols
+        </div>
+      </div>
+    </div>
+    <button mat-raised-button color="primary" class="button" (click)="submit(f.value)">Submit</button>
+  </form>
+</div>

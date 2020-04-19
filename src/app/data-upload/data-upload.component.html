@@ -1,0 +1,22 @@
+<div class="col10 align-self-center page-body">
+  <div class="row">
+    <div class="col-4 file-upload align-content-center mb-2">
+      <input id="students-input" type="file" #studentsInput hidden (change)="uploadStudents($event)">
+      <button class="btn btn-primary btn-block" (click)="studentsInput.click()">Upload new students</button>
+    </div>
+    <div class="col-4 file-upload align-content-center mb-2">
+      <input id="lecturers-input" type="file" #lecturersInput hidden (change)="uploadLecturers($event)">
+      <button class="btn btn-primary btn-block" (click)="lecturersInput.click()">Upload new lecturers</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4 file-upload align-content-center">
+      <input id="groups-input" type="file" #groupsInput hidden (change)="uploadGroups($event)">
+      <button class="btn btn-primary btn-block" (click)="groupsInput.click()">Upload new groups</button>
+    </div>
+    <div class="col-4 file-upload align-content-center">
+      <input id="subjects-input" type="file" #subjectsInput hidden (change)="uploadSubjects($event)">
+      <button class="btn btn-primary btn-block" (click)="subjectsInput.click()">Upload new subjects</button>
+    </div>
+  </div>
+</div>

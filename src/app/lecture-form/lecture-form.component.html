@@ -1,0 +1,46 @@
+<div class="lecture">
+  <form #f="ngForm" class="form" (ngSubmit)="submit(f.value)">
+    <div class="form-group">
+      <label for="name">Назва лекції</label>
+      <input required
+             minlength="3"
+             ngModel
+             name="name"
+             #email="ngModel"
+             id="name"
+             type="text"
+             class="form-control"
+             placeholder="Будь ласка введіть назву лекції"
+      >
+      <div *ngIf="name?.touched && name?.errors">
+        <div *ngIf="name.errors.required" class="alert alert-danger">
+          Name should be present
+        </div>
+        <div *ngIf="name.errors.minlength" class="alert alert-danger">
+          Name should be longer than 3 symbols
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="description">Опис лекції</label>
+      <input
+        required
+        #password="ngModel"
+        ngModel
+        name="description"
+        class="form-control"
+        id="description"
+        placeholder="Будь ласка введіть опис лекції"
+      >
+      <div *ngIf="description?.touched && description?.errors">
+        <div *ngIf="description.errors.required" class="alert alert-danger">
+          Password should be present
+        </div>
+      </div>
+
+    </div>
+    <button class="btn btn-primary" [disabled]="!f.valid">
+      Створити лекцію
+    </button>
+  </form>
+</div>

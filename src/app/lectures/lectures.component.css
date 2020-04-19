@@ -1,0 +1,10 @@
+#lectures-list {
+  width: 10%;
+  float: left;
+}
+
+#lecture {
+  width: 85%;
+  alignment: right;
+  float: left;
+}

@@ -1,0 +1,59 @@
+<div class="lecture">
+  <form #f="ngForm" class="form" (ngSubmit)="submit(f.value)">
+    <div class="form-group">
+      <label for="name">Назва лабораторної</label>
+      <input required
+             minlength="3"
+             ngModel
+             name="name"
+             #email="ngModel"
+             id="name"
+             type="text"
+             class="form-control"
+             placeholder="Будь ласка введіть назву лабораторної"
+      >
+      <div *ngIf="name?.touched && name?.errors">
+        <div *ngIf="name.errors.required" class="alert alert-danger">
+          Name should be present
+        </div>
+        <div *ngIf="name.errors.minlength" class="alert alert-danger">
+          Name should be longer than 3 symbols
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="description">Опис лабораторної</label>
+      <input
+        required
+        #password="ngModel"
+        ngModel
+        name="description"
+        class="form-control"
+        id="description"
+        placeholder="Будь ласка введіть опис лабораторної"
+      >
+      <div *ngIf="description?.touched && description?.errors">
+        <div *ngIf="description.errors.required" class="alert alert-danger">
+          Description should be present
+        </div>
+      </div>
+
+    </div>
+    <div class="form-group">
+      <label id="example-radio-group-label">Оберіть групу</label>
+      <mat-radio-group
+        aria-labelledby="example-radio-group-label"
+        class="example-radio-group"
+        name="radio"
+        required
+        [(ngModel)]="selectedGroup">
+        <mat-radio-button class="example-radio-button" *ngFor="let group of groups" [value]="group">
+          {{group.name}}
+        </mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <button class="btn btn-primary" [disabled]="!f.valid">
+      Створити лабораторну
+    </button>
+  </form>
+</div>

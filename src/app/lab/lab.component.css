@@ -1,0 +1,16 @@
+.center {
+  margin: auto;
+  align: center;
+}
+
+.lecture {
+  width: 70%;
+  alignment: right;
+  float: left;
+}
+
+.barcode {
+  height: 280px;
+  width: 400px;
+  align-content: center;
+}

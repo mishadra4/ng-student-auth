@@ -1,0 +1,10 @@
+#subjects-list {
+  width: 10%;
+  float: left;
+}
+
+#subject {
+  width: 85%;
+  alignment: right;
+  float: left;
+}

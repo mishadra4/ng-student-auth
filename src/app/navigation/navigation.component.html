@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" routerLink="/">Лого</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="" *ngIf="isLoggedIn()">Домашня сторінка</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" *ngIf="isLecturer()" routerLink="subjects">Предмети</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" *ngIf="isAdmin()" routerLink="upload">Дані</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" *ngIf="!isLoggedIn()" routerLinkActive="active" routerLink="login">Логін</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="profile" *ngIf="isLoggedIn()">Мій профіль</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="logout()" *ngIf="isLoggedIn()" routerLinkActive="active">Вийти</a>
+      </li>
+
+    </ul>
+  </div>
+  <li class="nav-item">
+    <span class="text-light">Вітаємо {{getCurrentUserName()}}</span>
+  </li>
+</nav>

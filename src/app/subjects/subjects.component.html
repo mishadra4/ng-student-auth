@@ -1,0 +1,11 @@
+<div id="subjects-section">
+  <div id="subjects-list">
+    <div class="list-group">
+      <a [routerLink]="[subject.name]" routerLinkActive="active" *ngFor="let subject of subjects"
+         class="list-group-item list-group-item-action">
+        {{subject.name}}
+      </a>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
