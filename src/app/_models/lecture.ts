@@ -33,6 +33,16 @@ export class Lecture {
     this._formattedDate = value;
   }
 
+  private _qrCodeEndDate: string;
+
+  get qrCodeEndDate(): string {
+    return this._qrCodeEndDate;
+  }
+
+  set qrCodeEndDate(value: string) {
+    this._qrCodeEndDate = value;
+  }
+
   private _orderNumber: number;
 
   get orderNumber(): number {

@@ -10,6 +10,10 @@ import {AuthService} from '../_services/auth.service';
 })
 export class EnrollComponent implements OnInit {
 
+  private username: string;
+
+  private success: boolean;
+
   constructor(private route: ActivatedRoute, private studentService: StudentService, private authService: AuthService) {
   }
 
@@ -18,9 +22,10 @@ export class EnrollComponent implements OnInit {
       (params: ParamMap) => {
         let lectureId = params.get('lectureId');
         let username = this.authService.getCurrentUser().username;
+        this.username = username;
         console.log('lecture = ' + lectureId +  ' username = ' + username);
         if (lectureId && username) {
-          this.studentService.enrollStudent(lectureId, username);
+          this.studentService.enrollStudent(lectureId, username).subscribe(() => this.success = true, error => this.success = false);
         }
       }
     );
