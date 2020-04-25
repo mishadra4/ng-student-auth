@@ -7,11 +7,12 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "preinstall": "npm install -g angular-cli",
+    "postinstall": "ng build && mv dist/* ."
   },
   "private": true,
   "dependencies": {
-    "@angular/compiler-cli": "^8.2.4",
     "@angular/animations": "~8.2.4",
     "@angular/cdk": "~8.2.3",
     "@angular/common": "~8.2.4",
