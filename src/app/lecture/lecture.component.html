@@ -83,7 +83,11 @@
   <div class="accordion" id="accordionExample">
     <div class="card">
       <div class="card-header" id="headingOne">
+        <p class="mb-0">QR код активний до {{lecture?.qrCodeEndDate}}</p>
         <h2 class="mb-0">
+          <button class="btn btn-link" (click)="renewQrCode()" type="button" >
+            Поновити QR-код
+          </button>
           <button class="btn btn-link" (click)="clickEvent()" type="button" data-toggle="collapse"
                   data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
             Показати/сховати QR-код

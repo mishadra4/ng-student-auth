@@ -19,8 +19,7 @@ export class StudentService {
 
   enrollStudent(lectureId, username) {
     console.log(backendUrl + 'lecture/' + lectureId + '/student/' + username + '/enroll');
-    return this.httpClient.post(backendUrl + 'lecture/' + lectureId + '/student/' + username + '/enroll', {}, httpOptions)
-      .subscribe();
+    return this.httpClient.post(backendUrl + 'lecture/' + lectureId + '/student/' + username + '/enroll', {}, httpOptions);
   }
 
   checkStudent(lectureId, username) {

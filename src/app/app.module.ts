@@ -41,6 +41,7 @@ import { SimplePopupComponent } from './simple-popup/simple-popup.component';
 import {ProfileComponent} from './profile/profile.component';
 import {ChangePasswordComponent} from './change-password/change-password.component';
 import {PasswordService} from './_services/password.service';
+import {QrCodeService} from './_services/qrcode.service';
 
 @NgModule({
   declarations: [
@@ -148,6 +149,7 @@ import {PasswordService} from './_services/password.service';
     SubjectService,
     StudentService,
     PasswordService,
+    QrCodeService,
     AuthService,
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},

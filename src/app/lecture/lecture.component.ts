@@ -6,6 +6,7 @@ import {StudentService} from '../_services/student.service';
 import {ActivatedRoute} from '@angular/router';
 import {MatSort, MatTableDataSource} from '@angular/material';
 import {formatDate} from '@angular/common';
+import {QrCodeService} from '../_services/qrcode.service';
 
 @Component({
   selector: 'lecture',
@@ -27,7 +28,7 @@ export class LectureComponent implements OnInit {
   displayedColumns: string[] = ['groupName', 'firstName', 'lastName', 'checked'];
   dataSource;
 
-  constructor(private lectureService: LectureService, private studentService: StudentService, private route: ActivatedRoute) {
+  constructor(private lectureService: LectureService, private studentService: StudentService, private route: ActivatedRoute, private qrCodeService: QrCodeService) {
   }
 
   ngOnInit() {
@@ -77,4 +78,7 @@ export class LectureComponent implements OnInit {
     return this.lecture.formattedDate;
   }
 
+  renewQrCode() {
+    this.qrCodeService.renewQrCode(this.lecture.id);
+  }
 }
