@@ -22,8 +22,6 @@ import {ErrorInterceptor} from './_helpers/error.interceptor';
 import {JwtInterceptor} from './_helpers/jwt.interceptor';
 import {AuthGuard} from './_helpers/auth.guard';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {BarcodeScannerComponent} from './barcode-scanner/barcode-scanner.component';
-import {BarecodeScannerLivestreamModule} from 'ngx-barcode-scanner';
 import {EnrollComponent} from './enroll/enroll.component';
 import {MatButtonModule, MatDialogModule, MatExpansionModule, MatRadioModule, MatSortModule} from '@angular/material';
 import {MatTableModule} from '@angular/material/table';
@@ -54,7 +52,6 @@ import {QrCodeService} from './_services/qrcode.service';
     LectureFormComponent,
     SubjectComponent,
     HomeComponent,
-    BarcodeScannerComponent,
     EnrollComponent,
     DataUploadComponent,
     LabFormComponent,
@@ -81,7 +78,6 @@ import {QrCodeService} from './_services/qrcode.service';
     MatTableModule,
     MatDialogModule,
     MatFileUploadModule,
-    BarecodeScannerLivestreamModule,
     RouterModule.forRoot([
       {
         path: '', component: HomeComponent, canActivate: [AuthGuard]
